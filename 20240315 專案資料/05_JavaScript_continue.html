@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      for (let i = 1; i <= 9; i++) {
+        if (i !== 5) {
+          //執行下方迴圈
+          document.write(i + "<br>");
+        }
+      }
+      document.write("<hr>");
+
+      for (let i = 1; i <= 9; i++) {
+        if (i === 5) {
+          continue; // 跳過下方迴圈
+        }
+        document.write(i + "<br>");
+      }
+      document.write("<hr>");
+
+      for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= 5; j++) {
+          // 多層迴圈的 continue 只對寫的那層有效 無法指定哪一層
+          // 直接跳到 j++ 進行下一次的 j 迴圈
+          if (i === 2) continue;
+          document.write(`${i}x${j}=${i * j}<br>`);
+        }
+      }
+      document.write("a");
+      loop1: for (let i = 1; i <= 5; i++) {
+        loop2: for (let j = 1; j <= 5; j++) {
+          // 指定對 loop1 迴圈 continue  即跳過填寫 2*1 2*2 2*3 2*4 2*5
+          // 直接跳到 i++ 進行下一次的 i 迴圈
+          if (i === 2) continue loop1;
+          document.write(`${i}x${j}=${i * j}<br>`);
+        }
+      }
+    </script>
+  </body>
+</html>
