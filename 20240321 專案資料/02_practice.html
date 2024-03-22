@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const Steamed_bun = [1, 8, 3, 4, 5, 6, 7, 2, 9, 10]
+        let total_money = 0
+        for (let i = 0; i < Steamed_bun.length; i++) {
+            Steamed_bun[i] *= (i + 1)
+            total_money += Steamed_bun[i]
+        }
+        document.write(total_money)
+    </script>
+</body>
+
+</html>

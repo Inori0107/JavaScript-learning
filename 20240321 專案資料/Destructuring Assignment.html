@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 把陣列或物件中的資料解開擷取成為獨立變數
+
+        const array = [1, 2, 3, 4]
+        // const one = array [0]
+        // const two = array [1]
+        // ... 代表剩下的 分配給 others
+        let [one, two, ...others] = array
+        console.log(one)
+        console.log(two)
+        console.log(others)
+        // 解構是看資料型態  陣列物件是 reference 其他是 value
+        //const 變數賦值為常數時，不可修改其值
+        // const 宣告陣列或是物件時，可修改其內部屬性
+        one = 100
+        console.log('one', one)  // 100
+        console.log('array', array)  // [1, 2, 3, 4]
+
+        const obj = { a: 1, b: 2, c: 3, d: 4 }
+        // const a = obj.a
+        // const bbb = obj.b
+        // 物件解構 必須取跟 key 相同的名字 或是用 : 重新命名
+        // ... 可以自己命名 且須置於最後
+        const { a, b: bbb, ...othersObj } = obj
+        console.log(a)
+        console.log(bbb)
+        console.log(othersObj)
+    </script>
+</body>
+
+</html>
