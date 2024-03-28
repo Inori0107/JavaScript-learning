@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const teacher = {
+        firstName: "aa",
+        lastName: "bb",
+        fullName: function () {
+          //   this 是指 這個物件
+          return this.firstName + this.lastName;
+        },
+        sayHi() {
+          return "你好 我是" + this.fullName();
+        },
+        sayHi2: () => {
+          // 箭頭函式的 this 指的是 window
+          // 而因為 window 沒有 fullName 所以會出錯
+          return "你好 我是" + this.fullName();
+        },
+      };
+      console.log(teacher.firstName);
+      console.log(teacher.lastName);
+      console.log(teacher.fullName());
+
+      class Teacher {
+        // 在物件建立時執行
+        constructor(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+        }
+        fullName() {
+          return this.firstName + this.lastName;
+        }
+      }
+      //   new 代表使用了新的 class
+      const teacher2 = new Teacher("cc", "dd");
+      console.log(teacher2.fullName());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   Uncaught ReferenceError : text is not defined
+      //   console.log(text)
+
+      //   Uncaught ReferenceError: Cannot access 'text' before initialization
+      //   console.log(text);
+      //   text = "abc";
+
+      console.log(text); // undefined
+      var text = "abc";
+
+      //   Uncaught ReferenceError: text is not defined
+      console.log(text);
+      text = "abc";
+
+      //   function declaration  會提升
+      hi("AAA");
+      function hi(name) {
+        console.log("hi, " + name);
+      }
+      //   function expression
+      var hi2 = function (name) {
+        console.log("hi," + name);
+      };
+    </script>
+  </body>
+</html>

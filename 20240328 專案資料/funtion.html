@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function GoodMorning() {
+      //     document.write("早上好 現在我有冰淇淋");
+      //   }
+      //   GoodMorning();
+
+      //   const GoodMorning = function () {
+      //     document.write("早上好 現在我有冰淇淋");
+      //   }
+      //   GoodMorning();
+
+      //   function GoodMorning(time, item) {
+      //     document.write(`${time}好 現在我有${item}`);
+      //   }
+      //   有兩個變數 就要填兩個  否則顯示為 undefined
+      //   GoodMorning("早上", "冰淇淋");
+      //   GoodMorning("中午", "桂格超大便當");
+
+      //   設定預設值
+      //   function GoodMorning(time = "早上", item = "冰淇淋") {
+      //     // arguments 用於取得所以傳入的資料 並顯示為 陣列
+      //     console.log(arguments);
+      //     document.write(`${time}好 現在我有${item}`);
+      //   }
+      //   GoodMorning(undefined, "冰淇淋");
+      //   document.write(`<br>`);
+      //   GoodMorning("中午", "桂格超大便當");
+      //   document.write(`<br>`);
+      //   GoodMorning("晚上");
+
+      //   return 先將 () 內的值帶入 function 再回傳改變的值 GoodMorning()
+      //   function GoodMorning(time = "早上", item = "冰淇淋") {
+      //     return `${time}好 現在我有${item}`;
+      //     // return 後的程式 都不會執行
+      //     console.log(123);
+      //   }
+      //   const text = GoodMorning();
+      //   console.log(text);
+      //   document.write(`<h1>${GoodMorning("中午", "桂格超大便當")}</h1>`);
+
+      //  箭頭函式 (簡寫)
+      //  arguments 無效
+      const GoodMorning = (time = "早上", item = "冰淇淋") => {
+        return `${time}好 現在我有${item}`;
+      };
+      const text = GoodMorning();
+      document.write(`<h1>${GoodMorning("中午", "桂格超大便當")}</h1>`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 當箭頭函式內的參數 只有一個時 可以省略 ()
+      //   const isEven = (number) => {
+      //     return number % 2 === 0;
+      //   };
+
+      //   如果 function 內只有一行 return 也可以省略 {}
+      //   const isOdd = (number) => number % 2 === 1;
+
+      //   如果省略 {} 但 return 物件的話 需要用 () 否則程式會以為是物件
+      //   const ogj = () => ({ aaa: 111, bbb: 222 });
+
+      function isEven(number) {
+        if (number % 2 === 0) {
+          return true;
+        } else if (number % 2 === 1) {
+          return false;
+        }
+      }
+      console.log(isEven(12));
+
+      //  縮寫  邏輯判斷式 得出布林值
+      //  const isEven = (number) => number % 2 === 0;
+      //  console.log(isEven(10));
+    </script>
+  </body>
+</html>

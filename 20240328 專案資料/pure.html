@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // impure function
+      // 一樣的輸入 卻造成不一樣的輸出
+      // 會改變 function 外的變數
+      let n = 0;
+      const add = (data) => {
+        n += data;
+        return n;
+      };
+      console.log(add(2)); // 2
+      console.log(add(3)); // 5
+
+      //pure function
+      // 一樣的輸入 一樣的輸出
+      // 只影響 function 內的變數/
+      const add2 = (data) => {
+        let n = 0;
+        n += data;
+        return n;
+      };
+      console.log(add2(2)); // 2
+      console.log(add2(3)); // 3
+    </script>
+  </body>
+</html>
