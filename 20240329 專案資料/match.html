@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let email = "aaaa@gmail.com";
+      let emailMatch = email.match(/^[0-9a-z]+@[0-9a-z]+\.[0-9a-z]+$/g);
+      console.log(emailMatch);
+
+      const emailRegexGroup = /^([0-9a-z]+)@([0-9a-z]+)\.([0-9a-z]+)$/g;
+      let emailMatchAllGroup = email.matchAll(emailRegexGroup);
+      for (const match of emailMatchAllGroup) {
+        // 0 : 'aaaa@gmail.com'
+        // 1 : 'aaaa'
+        // 2 : 'gmail'
+        // 3 : 'com'
+        // groups : undefined
+        // index : 0
+        console.log(match);
+      }
+      //   Regex() 群組找到的東西 可以用 $數字 來表示
+      let emailReplaceGroup = email.replace(
+        emailRegexGroup,
+        "帳號是 $1 網域是 $2.$3"
+      );
+      console.log(emailReplaceGroup);
+
+      const emailRegexGroup2 =
+        /^(?<account>[0-9a-z]+)@(?<domain>[0-9a-z]+)\.(?<tld>[0-9a-z]+)$/g;
+
+      let emailMatchAllGroup2 = email.matchAll(emailRegexGroup2);
+      for (const match of emailMatchAllGroup2) {
+        // 0 : 'aaaa@gmail.com'
+        // 1 : 'aaaa'
+        // 2 : 'gmail'
+        // 3 : 'com'
+        // groups : {
+        //   account:'aaa',
+        //   domain:'gmail',
+        //   tld:'com'
+        // }
+        // index : 0
+        console.log(match);
+      }
+      //   Regex() 群組找到的東西 可以用 $數字 來表示
+      let emailReplaceGroup2 = email.replace(
+        emailRegexGroup2,
+        "帳號是 $<account> 網域是 $<domain>.$<tld>"
+      );
+      console.log(emailReplaceGroup2);
+    </script>
+  </body>
+</html>

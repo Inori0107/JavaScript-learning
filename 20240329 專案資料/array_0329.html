@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const numbers = [1, 2, 3, 4, 5];
+
+      //   numbers.forEach(function () {
+      //   });
+
+      //   const each = () => {};
+      //   numbers.forEach(each);
+
+      //   .forEach(function)
+      // 迴圈陣列 每個東西都執行提供的 function
+      // function
+      // value = 現在在執行 function 的值
+      // index = 目前在執行 function 的值 索引
+      // array = 陣列本身
+
+      numbers.forEach((value, index, array) => {
+        // console.log(value, index, array);
+
+        // 不能直接修改 value
+        // value *= 10
+
+        // 只能使用索引 修改原陣列的值
+        array[index] *= 2;
+        numbers[index] *= 2;
+      });
+      console.log(numbers);
+
+      // .join(連接文字)
+      // 將陣列用連接文字 串成文字
+      console.log(numbers.join("+"));
+
+      const fruits = ["蘋果", "香蕉", "西瓜"];
+      // .push(資料)
+      // 把資料放進陣列最後
+      fruits.push("草莓", "藍莓");
+      console.log(fruits);
+
+      // .unshift(資料)
+      // 把資料放進陣列最前
+      fruits.unshift("橘子");
+      console.log(fruits);
+
+      const fruits2 = ["草莓", "芭樂", "柳丁"];
+      fruits.push(...fruits2); // fruits.unshift(...fruits3)
+      console.log(fruits);
+
+      // .pop 移除陣列最後(一個) 並回傳
+      const lastFruits = fruits.pop();
+      console.log(lastFruits, fruits);
+      // .shift 移除陣列最前(一個) 並回傳
+      const firstFruits = fruits.shift();
+      console.log(firstFruits, fruits);
+
+      const phone = ["iPhone", "Nothing", "Samsung"];
+      // .splice (開始位置, 刪除數量, 插入資料 1, 插入資料 2...)
+      //  刪除陣列索引並加入值，新值可以不加
+      phone.splice(1, 2, "Google", "Xiaomi");
+      console.log(phone);
+
+      const phone2 = ["Sony", "HTC"];
+      phone.splice(1, 2, ...phone2);
+      console.log(phone);
+
+      //.slice (開始位置, 結束位置)
+      // 陣列切割 產生新陣列
+      // 不會修改到原始陣列 可用於陣列複製
+      const newPhones = phone.slice(1, 5);
+      console.log(newPhones, phone);
+
+      // .concat(陣列)
+      // 連接陣列
+      const array = phone.concat(fruits, numbers);
+      console.log(array, phone);
+
+      // .reverse()
+      // 顛倒陣列
+      array.reverse();
+      console.log(array);
+    </script>
+  </body>
+</html>

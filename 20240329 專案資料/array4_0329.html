@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // .map (function)
+      // 迴圈陣列 每個東西都執行提供的 function
+      // 將每個東西執行 function 的 return 值 變成新的陣列
+      // 比起 each 更適合用於 改值
+      const numbers = [100, 200, 300];
+      const numbersDouble = numbers.map((value) => {
+        return value * 2;
+      });
+      console.log(numbers, numbersDouble);
+
+      const data = [
+        { name: "A", age: 22 },
+        { name: "B", age: 29 },
+      ];
+      //   加入新變項 Student
+
+      const dataNew = data.map((value) => {
+        // 會改變原陣列
+        // value.job = "Student";
+        // return value;
+
+        // 新陣列以儲存物件 (不會改值)
+        return {
+          name: value.name,
+          age: value.age,
+          job: "Student",
+        };
+
+        // ...others 快速寫法
+        // return {
+        //   ...value,
+        //   job: "Student",
+        // };
+      });
+      console.log(dataNew);
+
+      const numbers2 = [100, 200, 300, 400, 500];
+      // .reduce((累計值, 現在值) => {}, 初始值)
+      // 初始值可不設定 預設為 陣列的第一項(被當成 total)
+      // 可用於 購物車
+      const numbers2Total = numbers2.reduce((total, value) => {
+        console.log(total, value);
+        return total + value;
+      }, 10000);
+      console.log(numbers2Total);
+
+      const numbers3 = [100, 1561, 154613, 1231, 564635, 15641310];
+      // .sort((a, b) =>{})
+      // 倆倆比較 a 表示後面的值 b 表示前面的值
+      // return 0   => 順序不變
+      // return < 0 => a 在前
+      // return > 0 => b 在前
+      // return a - b => 正序
+      // return b - a => 倒序
+      numbers3.sort((a, b) => {
+        return a - b;
+      });
+      console.log(numbers3);
+
+      const cn = ["一", "二", "三", "四", "五"];
+      // localCompare 比較字元編碼順序
+      // a 在前 => -1
+      // b 在前 => 1
+      // 相等   => 0
+      cn.sort((a, b) => a.localeCompare(b));
+      console.log(cn);
+
+      const en = ["aaa", "ggg", "zzz", "ooo", "eee"];
+      en.sort((a, b) => a.localeCompare(b));
+      console.log(en);
+    </script>
+  </body>
+</html>
