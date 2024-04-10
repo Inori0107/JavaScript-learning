@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1 id="time"></h1>
+		<script>
+			const h1 = document.getElementById("time");
+			// let 可改值
+			let number = parseInt(prompt(""));
+
+			const countdown = () => {
+				h1.style.color = "blue";
+				h1.innerText = `剩下${number}秒`;
+				number--;
+				if (number < 0) {
+					clearInterval(timer);
+					h1.style.color = "red";
+					h1.innerText = `時間到`;
+				}
+			};
+			// 呼叫一個 function 使計時器 直接執行
+			const timer = setInterval(countdown, 1000);
+			countdown();
+		</script>
+	</body>
+</html>

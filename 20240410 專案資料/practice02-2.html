@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1 id="time" style="color:blue""></h1>
+		<script>
+			const h1 = document.getElementById("time");
+			let number = parseInt(prompt("倒數幾秒"));
+
+			h1.innerText = `剩下${number}秒`;
+			const timer = setInterval(() => {
+				number--;
+				h1.innerText = `剩下${number}秒`;
+				if (number < 1) {
+					clearInterval(timer);
+					h1.style.color = "red";
+					h1.innerText = `時間到`;
+				}
+			}, 1000);
+		</script>
+	</body>
+</html>
