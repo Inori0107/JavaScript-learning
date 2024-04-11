@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="button" id="scissors" value="剪刀" />
+		<input type="button" id="rock" value="石頭" />
+		<input type="button" id="paper" value="布" />
+		<hr />
+		<p>贏: <span id="win">0</span>輸: <span id="lose">0</span>平手: <span id="draw">0</span></p>
+		<ul id="ul"></ul>
+		<script>
+			const win = document.getElementById("win");
+			const lose = document.getElementById("lose");
+			const draw = document.getElementById("draw");
+			const ul = document.getElementById("ul");
+
+			// 電腦隨機出拳
+			const result = () => {
+				let computer = "";
+				let numbers = Math.floor(Math.random() * 3); // 印出 0 ~ 3 不包含 3
+				// console.log(numbers);
+				if (numbers == 0) {
+					computer = "石頭";
+				} else if (numbers == 1) {
+					computer = "布";
+				} else if (numbers == 2) {
+					computer = "剪刀";
+				}
+				return computer;
+			};
+
+			// 玩家出拳 勝負
+			scissors.onclick = () => {
+				const computer = result();
+				let winOrLose = "";
+				if (computer == "剪刀") {
+					draw.innerText++;
+					winOrLose = "平手";
+				} else if (computer == "石頭") {
+					lose.innerText++;
+					winOrLose = "輸";
+				} else {
+					win.innerText++;
+					winOrLose = "勝負";
+				}
+				alert(`玩家出剪刀，電腦出${computer}，${winOrLose}`);
+				// ul.innerHTML += `<li>玩家出剪刀，電腦出${computer}，${winOrLose}</li>`;
+				const li = document.createElement("li");
+				li.innerText = `玩家出剪刀，電腦出${computer}，${winOrLose}`;
+				ul.appendChild(li);
+			};
+
+			paper.onclick = () => {
+				const computer = result();
+				let winOrLose = "";
+				if (computer == "布") {
+					draw.innerText++;
+					winOrLose = "平手";
+				} else if (computer == "剪刀") {
+					lose.innerText++;
+					winOrLose = "輸";
+				} else {
+					win.innerText++;
+					winOrLose = "勝負";
+				}
+				alert(`玩家出布，電腦出${computer}，${winOrLose}`);
+				ul.innerHTML += `<li>玩家出布，電腦出${computer}，${winOrLose}</li>`;
+			};
+
+			rock.onclick = () => {
+				const computer = result();
+				let winOrLose = "";
+				if (computer == "石頭") {
+					draw.innerText++;
+					winOrLose = "平手";
+				} else if (computer == "剪刀") {
+					lose.innerText++;
+					winOrLose = "輸";
+				} else {
+					win.innerText++;
+					winOrLose = "勝負";
+				}
+				alert(`玩家出石頭，電腦出${computer}，${winOrLose}`);
+				ul.innerHTML += `<li>玩家出石頭，電腦出${computer}，${winOrLose}</li>`;
+			};
+		</script>
+	</body>
+</html>
