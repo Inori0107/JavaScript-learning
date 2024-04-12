@@ -12,7 +12,7 @@
 				border: 1px solid;
 			}
 			.color {
-				width: 200px;
+				width: 180px;
 				height: 50px;
 			}
 			.button {
@@ -30,21 +30,33 @@
 	</head>
 	<body>
 		<div class="box"></div>
-		<div class="box2"><input type="range" class="color" min="0" max="255" />0<button class="button">隨機</button></div>
-		<div class="box2"><input type="range" class="color" min="0" max="255" />0<button class="button">隨機</button></div>
-		<div class="box2"><input type="range" class="color" min="0" max="255" />0<button class="button">隨機</button></div>
+		<div class="box2">
+			<input type="range" class="color" min="0" max="255" />
+			<span class="number">0</span>
+			<button class="button">隨機</button>
+		</div>
+		<div class="box2">
+			<input type="range" class="color" min="0" max="255" />
+			<span class="number">0</span>
+			<button class="button">隨機</button>
+		</div>
+		<div class="box2">
+			<input type="range" class="color" min="0" max="255" />
+			<span class="number">0</span>
+			<button class="button">隨機</button>
+		</div>
 		<script>
 			const color = document.getElementsByClassName("color");
 			const button = document.getElementsByClassName("button");
 			const box = document.getElementsByClassName("box");
-			const box2 = document.getElementsByClassName("box2");
+			const number = document.getElementsByClassName("number");
 
 			// 滑動
 			for (let i = 0; i < color.length; i++) {
 				color[i].oninput = () => {
 					box[0].style.backgroundColor = `rgb(${color[0].value}, ${color[1].value}, ${color[2].value})`;
 					// 呈現數字
-					box2[i].innerText = color[i].value;
+					number[i].innerText = color[i].value;
 				};
 			}
 			// 隨機按鈕
@@ -57,4 +69,3 @@
 		</script>
 	</body>
 </html>
-
