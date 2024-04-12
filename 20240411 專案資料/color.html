@@ -13,6 +13,7 @@
 			}
 			.color {
 				width: 200px;
+				height: 50px;
 			}
 			.button {
 				float: right;
@@ -29,9 +30,9 @@
 	</head>
 	<body>
 		<div class="box"></div>
-		<div class="box2"><input type="range" class="color" min="0" max="255" /><button class="button">隨機</button></div>
-		<div class="box2"><input type="range" class="color" min="0" max="255" /><button class="button">隨機</button></div>
-		<div class="box2"><input type="range" class="color" min="0" max="255" /><button class="button">隨機</button></div>
+		<div class="box2"><input type="range" class="color" min="0" max="255" />0<button class="button">隨機</button></div>
+		<div class="box2"><input type="range" class="color" min="0" max="255" />0<button class="button">隨機</button></div>
+		<div class="box2"><input type="range" class="color" min="0" max="255" />0<button class="button">隨機</button></div>
 		<script>
 			const color = document.getElementsByClassName("color");
 			const button = document.getElementsByClassName("button");
@@ -39,24 +40,21 @@
 			const box2 = document.getElementsByClassName("box2");
 
 			// 滑動
-			for (const range of color) {
-				range.oninput = () => {
-					box[0].style.backgroundColor = `rgb(${range.value}, ${range.value}, ${range.value})`;
-					box2[0].innerText = range.value;
+			for (let i = 0; i < color.length; i++) {
+				color[i].oninput = () => {
+					box[0].style.backgroundColor = `rgb(${color[0].value}, ${color[1].value}, ${color[2].value})`;
+					// 呈現數字
+					box2[i].innerText = color[i].value;
 				};
 			}
 			// 隨機按鈕
-			for (const btn of button) {
-				btn.onclick = () => {
-					const r = Math.floor(Math.random() * 255);
-					const g = Math.floor(Math.random() * 255);
-					const b = Math.floor(Math.random() * 255);
-					color[0].value = r;
-					// color[1].value = g;
-					// color[2].value = b;
-					box[0].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+			for (let i = 0; i < button.length; i++) {
+				button[i].onclick = () => {
+					color[i].value = Math.floor(Math.random() * 255);
+					box[0].style.backgroundColor = `rgb(${color[0].value}, ${color[1].value}, ${color[2].value})`;
 				};
 			}
 		</script>
 	</body>
 </html>
+
